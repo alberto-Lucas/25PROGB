@@ -112,5 +112,142 @@ namespace AppMetodoFuncao
                             resultado.ToString());
         }
 
+        private void btnFuncao_Click(object sender, EventArgs e)
+        {
+            //Variaveis q recebera o valor digitado
+            //pelo usuario
+            int valor1, valor2;
+
+            //Converter o texto digitado
+            //em valor inteiro ou seja do tipo int
+            valor1 = int.Parse(txtValor1.Text);
+            valor2 = int.Parse(txtValor2.Text);
+
+            //Chamar a função para manipular
+            //as variaveis
+            int resultado;
+            resultado = FuncaoSomar(valor1, valor2);
+            MessageBox.Show(
+                "A soma é: " + resultado.ToString());
+
+            //Alternativa para apresentar o resultado
+            MessageBox.Show(
+                "A soma é: " + FuncaoSomar(valor1,valor2).ToString());
+
+        }
+
+        //Criar um função que ira receber 
+        // 2  valores via parametro
+        //ira somar os valores e retornar o resultado
+        //da soma
+
+        //Exemplo:
+        //Método
+        //void MetodoSomar()
+        //Função
+        //int FuncaoSomar()
+        int FuncaoSomar(int v1, int v2)
+        {
+            //Criar retorno da função
+            //Utilizar a palavra reservada
+            //return e o valor a ser retornado
+            return v1 + v2;
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            //Vamos limpar o conteudo
+            //do listBox
+
+            //lstItens é o componente
+            //Itens é o array de conteudo
+            //Clear() é o metodo limpar
+            lstItens.Items.Clear();
+        }
+
+        private void btnFOR_Click(object sender, EventArgs e)
+        {
+            //Criar um laço de repetição
+            //para popular o listbox
+            for(int i = 0; i <= 10; i++)
+            {
+                //a cada laço, vou adicionar
+                //o i (ou seja o valor de i) 
+                //no listbox
+                lstItens.Items.Add(i.ToString());
+            }
+            
+        }
+
+        private void btnWHILE_Click(object sender, EventArgs e)
+        {
+            //Laço de repetição com While
+            int i = 0;
+
+            while(i <= 10)
+            {
+                //Realização a ação de adicionar
+                //o valor na listBox
+                lstItens.Items.Add(i.ToString());
+                //nescessario fazer o incremento
+                //na variavel da condição
+                i++;
+            }
+        }
+
+        private void btnDoWHILE_Click(object sender, EventArgs e)
+        {
+            //Laço de repetição DO WHILE
+            //Garante q será executado 
+            //pelo menos uma vez
+
+            int i = 0;
+
+            do
+            {
+                lstItens.Items.Add(i.ToString());
+                i++;
+            }
+            while(i <= 10);
+        }
+
+        private void btnSoNumero_Click(object sender, EventArgs e)
+        {
+            //Pegar o conteudo do campos txtInfo
+            //extrair somente o numeros
+            //exibir esses numeros na label
+            lblResultado.Text = 
+                SoNumero(txtInfo.Text).ToString();
+        }
+
+        //Função quer retorna somente
+        //o numeros de um texto
+        int SoNumero(string Texto)
+        {
+            //Variavel para coletar os numeros
+            string resultado = "";
+
+            //Laço de repetição 
+            for(int i = 0; i < Texto.Length; i++)
+            {
+                //Validação se o caracter atual
+                //é um numero
+                //Ex TEXTO = "A1B2"
+                //[0] = A
+                //[1] = 1
+                //[2] = B
+                //[3] = 2
+                if (char.IsDigit(Texto[i]))
+                    resultado += Texto[i];
+            }
+
+            //retorno o resultado
+            //valido se a varial resultado
+            //esta preenchida
+            if (string.IsNullOrEmpty(resultado))
+                return 0;
+            else
+                return int.Parse(resultado);
+        }
     }
 }
