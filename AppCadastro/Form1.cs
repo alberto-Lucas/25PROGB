@@ -44,5 +44,38 @@ namespace AppCadastro
             //tela.Show();
             tela.ShowDialog();  
         }
+
+        private void btnCadCliente_Click_1(object sender, EventArgs e)
+        {
+            frmCadCliente tela = new frmCadCliente();
+            tela.ShowDialog();
+        }
+
+        private void btnCadProduto_Click(object sender, EventArgs e)
+        {
+            frmCadProduto tela = new frmCadProduto();
+            tela.ShowDialog();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadCliente tela = new frmCadCliente();
+            tela.ShowDialog();
+        }
+
+        private void produtosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadProduto tela = new frmCadProduto();
+            tela.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = 
+                DateTime.Now.ToLongTimeString();
+
+            lblData.Text = 
+                DateTime.Now.ToLongDateString();
+        }
     }
 }
