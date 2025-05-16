@@ -138,5 +138,176 @@ namespace AppManipulaArquivo
                     MessageBoxIcon.Error);
             }
         }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            //Validar o diretorio do arquivo
+            if(!ValidarDiretorio(
+                txtCaminho.Text, txtNomeArquivo.Text))
+            {
+                //Aqui iremos abortar a rotina
+                //Não precisamos colocar um MessageBox
+                //Pois ja foi adicionado as notificações
+                //na função ValidarDiretorio
+                return;
+            }
+
+            //Iremos programar a rotina
+            //de gravação de dados
+            //Utilizar o Try Catch, para tratar
+            //a rotina caso ocorra um erro
+            //não esperado
+            try
+            {
+                //Antes de gravar o texto
+                //precisamos validar a existencia 
+                //do arquivo
+                //A funçao gravar, irá substituir todo
+                //o conteudo do arquivo, e gravar o novo
+                //texto
+                if(!File.Exists(GetDiretorioCompleto()))
+                {
+                    MessageBox.Show(
+                        "O arquivo não existe.",
+                        "Atenção",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    //Iremos gravar todo o conteudo no arquivo
+                    File.WriteAllText(
+                        GetDiretorioCompleto(),
+                        txtTexto.Text);
+                    //Notificar o usuario, que o
+                    //registro foi salvo
+                    MessageBox.Show(
+                        "Dados gravados com sucesso.",
+                        "Informação",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Falha ao gravar os dados no arquivo." +
+                    Environment.NewLine +
+                    "Erro original: " + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            //Seguir a mesma ideia da rotina
+            //do botão Gravar
+
+            //Validar o diretorio
+            if(!ValidarDiretorio(
+                txtCaminho.Text, txtNomeArquivo.Text))
+            {
+                return;
+            }
+
+            try
+            {
+                //Validar a existencia do arquivo
+                if(!File.Exists(GetDiretorioCompleto()))
+                {
+                    //Notificar o usuario
+                    MessageBox.Show(
+                        "O arquivo não existe.",
+                        "Atenção",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    //Diferente do gravar
+                    //iremos abortar a rotina 
+                    //caso o arquivo não exista
+                    return;
+                }
+
+                //Segue chegou aqui, é pq não houve
+                //nenhum problema acima
+
+                //Iremos usar o recuso de Append
+                //para adicionar um conteudo ao arquivo
+                //mantendo o conteudo original
+                //apenas adicionando a nova informação
+                //Lembrando que o Apped, ira gravar 
+                //os dados em sequencia(uma linha só)
+                //para isso ao final do texto, precisamo
+                //adicionar uma quebra linha
+                //para que o novo conteudo adicionado
+                //seja inserido na linha de baixo
+                File.AppendAllText(
+                    GetDiretorioCompleto(),
+                    txtTexto.Text + Environment.NewLine);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Falha ao adicionar dados no arquivo."+
+                    Environment.NewLine +
+                    "Erro original: " + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCarregar_Click(object sender, EventArgs e)
+        {
+            //Verificar diretorios
+            if(!ValidarDiretorio(
+                txtCaminho.Text, txtNomeArquivo.Text))
+            {
+                return;
+            }
+
+            //Criar a rotina de carregamento
+            //do arquivo
+            try
+            {
+                //Validar a existencia do arquivo
+                if(!File.Exists(GetDiretorioCompleto()))
+                {
+                    MessageBox.Show(
+                        "O arquivo não existe.",
+                        "Atenção",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    return;
+                }
+
+                //Se chegou aqui esta tudo certo
+                //podemos carregar o conteudo 
+                //do arquivo
+                //após carregar iremos exibir 
+                //o conteudo no campo txtArquivo
+                string conteudo =
+                    File.ReadAllText(
+                        GetDiretorioCompleto());
+                txtArquivo.Text = conteudo;
+                MessageBox.Show(
+                    "Arquivo carregado com sucesso.",
+                    "Informação",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Falha ao carregar o arquivo." +
+                    Environment.NewLine + 
+                    "Erro original: " + ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
