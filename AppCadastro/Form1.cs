@@ -77,5 +77,11 @@ namespace AppCadastro
             lblData.Text = 
                 DateTime.Now.ToLongDateString();
         }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            frmListaCliente tela = new frmListaCliente();
+            tela.ShowDialog();
+        }
     }
 }

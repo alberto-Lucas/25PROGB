@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblData = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
             this.btnCadProduto = new System.Windows.Forms.Button();
             this.btnCadCliente = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -41,9 +43,8 @@
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atualizarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblHora = new System.Windows.Forms.Label();
-            this.lblData = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnListar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,28 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(500, 56);
             this.panel1.TabIndex = 0;
+            // 
+            // lblData
+            // 
+            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.ForeColor = System.Drawing.Color.White;
+            this.lblData.Location = new System.Drawing.Point(232, 29);
+            this.lblData.Name = "lblData";
+            this.lblData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblData.Size = new System.Drawing.Size(261, 19);
+            this.lblData.TabIndex = 3;
+            this.lblData.Text = "label2";
+            // 
+            // lblHora
+            // 
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.White;
+            this.lblHora.Location = new System.Drawing.Point(227, 3);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblHora.Size = new System.Drawing.Size(270, 26);
+            this.lblHora.TabIndex = 2;
+            this.lblHora.Text = "label1";
             // 
             // btnCadProduto
             // 
@@ -111,14 +134,14 @@
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.produtosToolStripMenuItem.Text = "Produtos";
             this.produtosToolStripMenuItem.Click += new System.EventHandler(this.produtosToolStripMenuItem_Click);
             // 
@@ -134,13 +157,13 @@
             // ajudaToolStripMenuItem
             // 
             this.ajudaToolStripMenuItem.Name = "ajudaToolStripMenuItem";
-            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ajudaToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.ajudaToolStripMenuItem.Text = "Ajuda";
             // 
             // atualizarToolStripMenuItem
             // 
             this.atualizarToolStripMenuItem.Name = "atualizarToolStripMenuItem";
-            this.atualizarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.atualizarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.atualizarToolStripMenuItem.Text = "Atualizar";
             // 
             // sairToolStripMenuItem
@@ -149,33 +172,21 @@
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.sairToolStripMenuItem.Text = "Sair";
             // 
-            // lblHora
-            // 
-            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHora.ForeColor = System.Drawing.Color.White;
-            this.lblHora.Location = new System.Drawing.Point(227, 3);
-            this.lblHora.Name = "lblHora";
-            this.lblHora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblHora.Size = new System.Drawing.Size(270, 26);
-            this.lblHora.TabIndex = 2;
-            this.lblHora.Text = "label1";
-            // 
-            // lblData
-            // 
-            this.lblData.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblData.ForeColor = System.Drawing.Color.White;
-            this.lblData.Location = new System.Drawing.Point(232, 29);
-            this.lblData.Name = "lblData";
-            this.lblData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblData.Size = new System.Drawing.Size(261, 19);
-            this.lblData.TabIndex = 3;
-            this.lblData.Text = "label2";
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnListar
+            // 
+            this.btnListar.Location = new System.Drawing.Point(12, 86);
+            this.btnListar.Name = "btnListar";
+            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.TabIndex = 2;
+            this.btnListar.Text = "Listar";
+            this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // Form1
             // 
@@ -183,6 +194,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(500, 181);
+            this.Controls.Add(this.btnListar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -213,6 +225,7 @@
         private System.Windows.Forms.Label lblData;
         private System.Windows.Forms.Label lblHora;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnListar;
     }
 }
 

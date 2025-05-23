@@ -25,7 +25,7 @@ namespace AppCadastro
             //Aqui que vamos definir a validação
             //do campo
             //Validar se o campos esta preenchido
-            if(string.IsNullOrEmpty(txtNome.Text))
+            if (string.IsNullOrEmpty(txtNome.Text))
             {
                 //Aqui vamos cancelar a ação da tela
                 //Marca q a ação sera cancelada
@@ -41,7 +41,7 @@ namespace AppCadastro
                 //Se estiver tudo ok
                 //precisamos cancelar o cancelamento
                 //e remover a mensagem
-                e.Cancel= false;
+                e.Cancel = false;
                 errErro.SetError(
                     txtNome, "");
             }
@@ -65,7 +65,7 @@ namespace AppCadastro
                 //Iremos notificar o usuário
                 //e disparar o icones de erro
                 MessageBox.Show(
-                    "É necessário preencher todos " + 
+                    "É necessário preencher todos " +
                     "campos corretamente.",
                     "Atenção",
                     MessageBoxButtons.OK,
@@ -79,7 +79,7 @@ namespace AppCadastro
         {
             string retorno = "";
 
-            for(int i = 0; i < pTexto.Length; i++)
+            for (int i = 0; i < pTexto.Length; i++)
                 if (char.IsNumber(pTexto[i]))
                     retorno += pTexto[i];
             return retorno;
@@ -92,14 +92,14 @@ namespace AppCadastro
 
             //Agora podemos realizar as 
             //validações
-            if(string.IsNullOrEmpty(CPF))
+            if (string.IsNullOrEmpty(CPF))
             {
                 e.Cancel = true;
                 errErro.SetError(
                     mskCPF,
                     "Preencha o CPF.");
             }
-            else if(CPF.Length != 11)
+            else if (CPF.Length != 11)
             {
                 e.Cancel = true;
                 errErro.SetError(
@@ -131,8 +131,8 @@ namespace AppCadastro
             //Utilizo o DialogResult
             //Se o usuario clicar em SIM
             //fecho a tela
-            if(MessageBox.Show(
-                "Deseja realmente descartar "+
+            if (MessageBox.Show(
+                "Deseja realmente descartar " +
                 "as alterações?",
                 "Confirmação",
                 MessageBoxButtons.YesNo,
@@ -170,7 +170,7 @@ namespace AppCadastro
 
             //Criação da pasta se não existir
             string pasta = Path.GetDirectoryName(caminho);
-            if(!Directory.Exists(pasta))
+            if (!Directory.Exists(pasta))
             {
                 //Criamos a pasta
                 Directory.CreateDirectory(pasta);
@@ -234,7 +234,7 @@ namespace AppCadastro
                 GetDirArquivo("Clientes", SoNumero(mskCPF.Text));
 
             //Validar a existencia do arquivo
-            if(ArquivoExiste(caminhoCompleto))
+            if (ArquivoExiste(caminhoCompleto))
             {
                 MessageBox.Show(
                     "Já existe um cadatros com este CPF.",
@@ -253,15 +253,15 @@ namespace AppCadastro
                 //No prgrama final o usuario não deve sar onde
                 //o arquivo foi salvo
                 MessageBox.Show(
-                    "Registro salvo com sucesso!" + 
+                    "Registro salvo com sucesso!" +
                     Environment.NewLine +
                     Environment.NewLine +
                     "Salvo em: " + caminhoCompleto,
-                    "Informação", 
+                    "Informação",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(
                     "Falha ao salvar o cadastro." + Environment.NewLine +
@@ -270,5 +270,6 @@ namespace AppCadastro
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error);
             }
+        }
     }
 }
